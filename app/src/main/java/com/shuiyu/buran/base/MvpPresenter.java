@@ -7,5 +7,5 @@ package com.shuiyu.buran.base;
  * desc   : 描述
  * </pre>
  */
-public interface MvpPresenter {
+public interface MvpPresenter  {
 }
