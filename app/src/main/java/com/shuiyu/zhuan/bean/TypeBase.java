@@ -89,4 +89,15 @@ public class TypeBase {
             this.art_typename = art_typename;
         }
     }
+
+    @Override
+    public String toString() {
+        return "TypeBase{" +
+                "displayindex=" + displayindex +
+                ", err_code='" + err_code + '\'' +
+                ", ret='" + ret + '\'' +
+                ", return_msg='" + return_msg + '\'' +
+                ", datas=" + datas +
+                '}';
+    }
 }

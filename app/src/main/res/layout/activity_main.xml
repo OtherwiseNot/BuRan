@@ -38,7 +38,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llout_photo"
+            android:id="@+id/llout_video"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -57,7 +57,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llout_toher"
+            android:id="@+id/llout_other"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -76,7 +76,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llout_mnie"
+            android:id="@+id/llout_mine"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -1,4 +1,4 @@
-package com.shuiyu.zhuan.news;
+package com.shuiyu.zhuan.videos;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,48 +18,54 @@ import java.util.List;
 /**
  * <pre>
  * author : buran
- * time   : 2018/06/29
+ * time   : 2018/07/03
  * </pre>
  */
-public class NewsTabLayout extends BaseFragment<INewsTab.Presenter> implements INewsTab.View{
-    public static final String TAG = "NewsTabLayout";
-    private static volatile NewsTabLayout newsTabLayout = null;
-    private List<Fragment> mFragmentList;
-    private List<String> mTitleList;
-    private SlidingTabLayout mSlidingTabLayout;
-    private ViewPager mViewPager;
+public class VideosTabLayout extends BaseFragment<IVideoTab.Presenter> implements IVideoTab.View {
+    private static final String TAG = "VideoTabLayout";
+    private static volatile VideosTabLayout videosTabLayout;
+    private SlidingTabLayout mMStabMainVideos;
+    private ViewPager mMVpMainVideos;
     private ViewPagerFragmentAdapter mAdapter;
 
-    public static NewsTabLayout getInstance() {
-        if (newsTabLayout == null) {
-            synchronized (NewsTabLayout.class) {
-                if (newsTabLayout == null) {
-                    newsTabLayout = new NewsTabLayout();
+    public static VideosTabLayout getInstance() {
+        if (videosTabLayout == null) {
+            synchronized (VideosTabLayout.class) {
+                if (videosTabLayout == null) {
+                    videosTabLayout = new VideosTabLayout();
                 }
             }
         }
-        return newsTabLayout;
+        return videosTabLayout;
     }
 
     @Override
     protected int attachLayoutId() {
-        return R.layout.fragment_news_tab;
+        return R.layout.fragment_videos_tab;
     }
 
     @Override
     protected void initView(View view) {
-        mSlidingTabLayout = view.findViewById(R.id.stab_main_news);
-        mViewPager = view.findViewById(R.id.vp_main_news);
+        mMStabMainVideos = view.findViewById(R.id.stab_main_videos);
+        mMVpMainVideos = view.findViewById(R.id.vp_main_videos);
     }
+
     @Override
     protected void initData() {
-        initTabs();
+        presenter.getLoadData();
+    }
+
+    @Override
+    public void setPresenter(IVideoTab.Presenter presenter) {
+        if (null == presenter) {
+            this.presenter = new VideoTabPresenter(this);
+        }
     }
 
     @Override
     public void doLoadData(TypeBase bean) {
-        mFragmentList = new ArrayList<>();
-        mTitleList = new ArrayList<>();
+        List<Fragment> mFragmentList = new ArrayList<>();
+        List<String> mTitleList = new ArrayList<>();
         for (TypeBase.DatasBean data : bean.getDatas()) {
             Fragment fragment = null;
             mTitleList.add(data.getArt_typename());
@@ -67,25 +73,13 @@ public class NewsTabLayout extends BaseFragment<INewsTab.Presenter> implements I
             mFragmentList.add(fragment);
         }
         mAdapter = new ViewPagerFragmentAdapter(getChildFragmentManager(), mFragmentList, mTitleList);
-        mViewPager.setAdapter(mAdapter);
-        mSlidingTabLayout.setViewPager(mViewPager);
+        mMVpMainVideos.setAdapter(mAdapter);
+        mMStabMainVideos.setViewPager(mMVpMainVideos);
     }
-
-    @Override
-    public void setPresenter(INewsTab.Presenter presenter) {
-        if(null == presenter){
-            this.presenter = new NewsTabPresenter(this);
-        }
-    }
-
     public class ViewPagerFragmentAdapter extends BaseViewPagerFragmentAdapter<NewsArticleView> {
 
         public ViewPagerFragmentAdapter(FragmentManager fm, List listData, List<String> listTitle) {
             super(fm, listData, listTitle);
         }
-    }
-
-    private void initTabs() {
-        presenter.getLoadData();
     }
 }

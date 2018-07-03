@@ -2,7 +2,7 @@ package com.shuiyu.zhuan.api;
 
 import com.shuiyu.zhuan.bean.TypeBase;
 
-import retrofit2.Call;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 /**
@@ -26,5 +26,5 @@ public interface BaseApi {
             "openid%22%3A%22orLJBwOHB_rmguSPhH5epBQQsCc4%22%7D%2C%22" +
             "vercode%22%3A19%2C%22" +
             "version%22%3A%223.0.6%22%7D")
-    Call<TypeBase> getArtType();
+    Observable<TypeBase> getArtType();
 }

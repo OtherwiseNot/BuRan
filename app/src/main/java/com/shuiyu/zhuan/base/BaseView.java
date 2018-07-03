@@ -6,7 +6,7 @@ package com.shuiyu.zhuan.base;
  * time   : 2018/06/26
  * </pre>
  */
-interface BaseView<T> {
+public interface BaseView<T> {
 
     void setPresenter(T presenter);
 }

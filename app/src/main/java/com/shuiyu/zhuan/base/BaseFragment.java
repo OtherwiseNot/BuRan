@@ -1,10 +1,10 @@
 package com.shuiyu.zhuan.base;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,7 @@ import android.view.ViewGroup;
  * time   : 2018/06/26
  * </pre>
  */
-public abstract class BaseFragment<T extends MvpPresenter> extends Fragment implements BaseView<T> {
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView<T> {
     @NonNull
     protected Context mContext;
     protected T presenter;

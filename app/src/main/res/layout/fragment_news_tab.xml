@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
+
     <RelativeLayout
-        android:background="@android:color/holo_blue_bright"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x90">
+        android:layout_height="@dimen/x90"
+        android:background="@android:color/holo_green_light">
+
         <TextView
-            android:textStyle="bold"
-            android:textSize="@dimen/x40"
-            android:text="新闻"
-            android:layout_centerInParent="true"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="新闻"
+            android:textSize="@dimen/x45"
+            android:textStyle="bold"/>
     </RelativeLayout>
+
     <com.flyco.tablayout.SlidingTabLayout
+        app:tl_tab_padding="@dimen/x20"
+        app:tl_indicator_color="@android:color/holo_green_light"
+        app:tl_underline_color="@android:color/transparent"
+        app:tl_underline_height="@dimen/x5"
+        app:tl_textsize="@dimen/x35"
+        app:tl_textSelectColor="@android:color/holo_green_light"
+        app:tl_textUnselectColor="@android:color/black"
+        app:tl_indicator_width_equal_title="true"
+        android:id="@+id/stab_main_news"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x50"/>
+        android:layout_height="@dimen/x70"/>
 
     <android.support.v4.view.ViewPager
+        android:id="@+id/vp_main_news"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
