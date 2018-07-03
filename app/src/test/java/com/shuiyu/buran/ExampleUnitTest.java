@@ -1,4 +1,4 @@
-package com.shuiyu.buran;
+package com.shuiyu.zhuan;
 
 import org.junit.Test;
 

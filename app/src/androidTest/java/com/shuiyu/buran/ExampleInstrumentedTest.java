@@ -1,4 +1,4 @@
-package com.shuiyu.buran;
+package com.shuiyu.zhuan;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.shuiyu.buran", appContext.getPackageName());
+        assertEquals("com.shuiyu.zhuan", appContext.getPackageName());
     }
 }
