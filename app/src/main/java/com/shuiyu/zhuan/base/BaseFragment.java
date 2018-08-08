@@ -2,7 +2,6 @@ package com.shuiyu.zhuan.base;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,7 +15,6 @@ import android.view.ViewGroup;
  * </pre>
  */
 public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView<T> {
-    @NonNull
     protected Context mContext;
     protected T presenter;
 
@@ -31,10 +29,9 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         super.onCreate(savedInstanceState);
         setPresenter(presenter);
     }
-
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        assert inflater != null;
         View view = inflater.inflate(attachLayoutId(), container, false);
         initView(view);
         initData();
