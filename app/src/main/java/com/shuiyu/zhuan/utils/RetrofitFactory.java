@@ -33,9 +33,9 @@ public class RetrofitFactory {
                             .writeTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
                             .retryOnConnectionFailure(true);
                     // Log 拦截器
-                    HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-                    interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-                    builder.addInterceptor(interceptor);
+//                     HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+//                     interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+//                     builder.addInterceptor(interceptor);
 
                     retrofit = new Retrofit.Builder()
                             .baseUrl(BaseApi.HOST)
