@@ -18,7 +18,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class NewsTabPresenter implements INewsTab.Presenter{
     private INewsTab.View mView;
-    private NewsTabPresenter(INewsTab.View view) {
+    NewsTabPresenter(INewsTab.View view) {
         this.mView = view;
     }
 
